@@ -18,7 +18,7 @@ class CustomBottomNavBar extends StatelessWidget {
       height: 50,
       color: AppColors.primaryLight,
       buttonBackgroundColor: AppColors.primary,
-      backgroundColor: AppColors.scaffoldBackground,
+      backgroundColor: AppColors.primaryLight,
       items: <Widget>[
         Icon(Icons.home, size: 30, color: Colors.white),
         Icon(Icons.person, size: 30, color: Colors.white),

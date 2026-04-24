@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this, unnecessary_new, prefer_collection_literals
+
 class TaskModel {
   String? createdAt;
   String? description;
@@ -22,12 +24,12 @@ class TaskModel {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'created_at': createdAt,
-      'description': description,
-      'id': id,
-      'image_path': imagePath,
-      'title': title,
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['created_at'] = this.createdAt;
+    data['description'] = this.description;
+    data['id'] = this.id;
+    data['image_path'] = this.imagePath;
+    data['title'] = this.title;
+    return data;
   }
 }

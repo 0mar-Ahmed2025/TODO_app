@@ -11,7 +11,7 @@ class ImageManager extends StatefulWidget {
     this.networkImageBuilder,
   });
   final Widget unselectedImageBuilder;
-  final Widget Function(String imagePath) selectedImageBuilder;
+  final Widget Function(XFile imagePath) selectedImageBuilder;
   final Widget? networkImageBuilder;
 
   @override
@@ -29,7 +29,7 @@ class _ImageManagerState extends State<ImageManager> {
       child: Builder(
         builder: (context) {
           if (image != null) {
-            return widget.selectedImageBuilder(image!.path);
+            return widget.selectedImageBuilder(image!);
           } else if (widget.networkImageBuilder != null) {
             return widget.networkImageBuilder!;
           }

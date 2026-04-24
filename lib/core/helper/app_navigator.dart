@@ -6,21 +6,21 @@ enum NavigatorType { push, pushReplacement, pushAndRemoveUntil, pop }
 
 abstract class MyNavigator {
   static goto(
-    BuildContext context,
+    BuildContext? context,
     Widget screen, {
     NavigatorType type = NavigatorType.push,
   }) {
     var pageRoute = MaterialPageRoute(builder: (_) => screen);
     switch (type) {
       case NavigatorType.pop:
-        return Navigator.pop(context, pageRoute);
+        return Navigator.pop(context!, pageRoute);
       case NavigatorType.push:
-        return Navigator.push(context, pageRoute);
+        return Navigator.push(context!, pageRoute);
       case NavigatorType.pushReplacement:
-        return Navigator.pushReplacement(context, pageRoute);
+        return Navigator.pushReplacement(context!, pageRoute);
       case NavigatorType.pushAndRemoveUntil:
         return Navigator.pushAndRemoveUntil(
-          context,
+          context!,
           pageRoute,
           (route) => false,
         );

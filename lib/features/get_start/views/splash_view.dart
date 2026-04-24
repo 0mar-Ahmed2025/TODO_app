@@ -24,7 +24,7 @@ class _SplashViewState extends State<SplashView> {
       () => MyNavigator.goto(
         context,
         GetStartView(),
-        type: NavigatorType.pushReplacement,
+        type: NavigatorType.pushAndRemoveUntil,
       ),
     );
     super.initState();

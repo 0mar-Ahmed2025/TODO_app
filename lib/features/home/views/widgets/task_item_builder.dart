@@ -1,36 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:to_do/core/helper/app_navigator.dart';
 import 'package:to_do/core/utils/app_colors.dart';
 import 'package:to_do/features/home/data/models/task_model.dart';
-import 'package:to_do/features/tasks/views/update_task_view.dart';
 
 class TaskItemBuilder extends StatelessWidget {
   const TaskItemBuilder({
     super.key,
     required this.task,
     required this.taskImage,
-    this.onTaskUpdated,
+    this.onTap,
   });
 
   final TaskModel task;
   final String taskImage;
-  final VoidCallback? onTaskUpdated;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
-        var result = await MyNavigator.goto(
-          context,
-          UpdateTaskView(taskModel: task),
-          type: NavigatorType.push,
-        );
-
-        if (result == true) {
-          onTaskUpdated?.call();
-        }
-      },
-
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         margin: REdgeInsets.only(top: 20),
